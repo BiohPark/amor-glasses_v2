@@ -9,7 +9,7 @@ ex) receiver = Receiver("IMU_1", "IMU_2",...,"IMU_5", ,"IR_1", "IR_2")
 모으려고 하는 데이터의 패턴을 pattern 값에 저장
 receiver를 설정해줄때, parameter로 type="receiver"를 넣어줘야 함. Default값을 실시간 예측모델인 "realtime_classifier"
 
-#### -프로그램 실행시
+#### 프로그램 실행시
 현재 들어오고 있는 데이터를 그래프를 통해 실시간으로 볼 수 있음
 이 상태에서 '엔터'키를 누르면 현재 보고 있는 그래프의 데이터를 csv 파일로 저장함.
 현재 있는 폴더에서 "patterns"라는 하위 폴더를 생성하고 그 안에 각 pattern의 이름으로 하위폴더를 생성한 후 pattern 폴더 속에 순서대로 저장 됨
@@ -37,4 +37,4 @@ ESC키를 누르면 데이터 수집이 종료됨
 ## 3. 실시간 예측 및 테스트(by sound)
 
 
-4. 추가학습
+## 4. 추가학습
