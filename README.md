@@ -1,7 +1,10 @@
 # amor-glasses_v2
-final version
+시리얼 데이터 수신을 통한 데이터 패턴인식 final version
 
-## 1. 데이터 수집 파트
+본 프로젝트는 안경이라는 웨어러블 기기를 통해 사물을 제어해보자는 새로운 조작방식을 제안하는 프로젝트를 위한 자료입니다.
+현재 제어의 단계에는 아직 도달하지 못하였고, 지도학습 기반으로 패턴인식을 통해 동작의 실시간 분류가 가능합니다.
+
+# 1. 데이터 수집 파트
 -프로그램 실행 전 설정해야할 것
 receiver = Receiver()의 parameter로 블루투스를 통해 들어오는 모든 센서데이터들의 이름을 순서대로 지정
 ex) receiver = Receiver("IMU_1", "IMU_2",...,"IMU_5", ,"IR_1", "IR_2")
@@ -9,14 +12,14 @@ ex) receiver = Receiver("IMU_1", "IMU_2",...,"IMU_5", ,"IR_1", "IR_2")
 모으려고 하는 데이터의 패턴을 pattern 값에 저장
 receiver를 설정해줄때, parameter로 type="receiver"를 넣어줘야 함. Default값을 실시간 예측모델인 "realtime_classifier"
 
-#### 프로그램 실행시
+### 프로그램 실행시
 현재 들어오고 있는 데이터를 그래프를 통해 실시간으로 볼 수 있음
 이 상태에서 '엔터'키를 누르면 현재 보고 있는 그래프의 데이터를 csv 파일로 저장함.
 현재 있는 폴더에서 "patterns"라는 하위 폴더를 생성하고 그 안에 각 pattern의 이름으로 하위폴더를 생성한 후 pattern 폴더 속에 순서대로 저장 됨
 ESC키를 누르면 데이터 수집이 종료됨
 데이터 수집을 종료한 후 우측상단의 ㅁ(그만) 버튼을 눌러 프로그램을 종료. ( Theading 종료 방법을 모름... )
 
-#### 주의할것! 
+### 주의할것! 
 
 * 엔터키를 누르고 데이터가 저장되는데 약간의 latency가 발생할 수 있으므로 자신의 생각보다 0.1~0.2초 먼저 엔터를 누르면 더 정확하게 데이터를 수집할 수 있음. 
   만약 wide를 큰값으로 설정하면 별 문제가 되지는 않음 (extract.set_extract_option(wide = W) 입력) # W : timestep의 수 = 패턴을 인식하는데 필요하다고 생각하는 데이터의 숫자
@@ -31,10 +34,14 @@ ESC키를 누르면 데이터 수집이 종료됨
 
 "set_extract_options(folder_path=path, pattern_name="pattern", beep_sound=1000, beep_length=300, index=1, elapsed_time=1) - Default 값 상황"
 
-## 2. 데이터 로드 및 모델 학습, 저장 파트
+# 2. 데이터 로드 및 모델 학습, 저장 파트
 각 패턴데이터가 저장된 폴더의 이름(set_extract_options를 통해 바꾼 이름)을 제외하고 기본설정을 바꾸지 않았다면, 다른 입력값 없이 학습 및 모델 저장까지 자동으로 진행
 
-## 3. 실시간 예측 및 테스트(by sound)
+# 3. 실시간 예측 및 테스트(by sound)
 
 
-## 4. 추가학습
+# 4. 추가학습
+
+
+# reference
+패턴인식 모델에 "https://github.com/titu1994/MLSTM-FCN" 의 모델이 활용되었습니다.
